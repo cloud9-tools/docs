@@ -3,9 +3,29 @@
 
 Cloud9 is a centralized Version Control System designed for hybrid
 online/offline use, suitable for Free Software / Open Source development.  The
-system is built from multiple layers; from bottom up, these are: raw storage,
+system is built from multiple layers; from bottom up, these are: block servers,
 resilient storage, named storage, discovery, Version Control Server, and FUSE
 client.
+
+                                                         Block servers
+                                                       +---+ +---+ +---+ +---+
+                                                       |   | |   | |   | |   | ...
+                                                       +---+ +---+ +---+ +---+
+                                                         ^     ^     ^     ^
+                                                         |     |     |     |
+    +-------------+                                      +-----+--+--+-----+
+    | FUSE Client |--------v                                      |
+    +-------------+    ,-`;_,-`;_,-`;,    +-----+      +-------------------+
+                       |  Internet  ;---->| VCS |--+-->| Resilient storage |-----+
+    +-------------+    `-~,__;`,~_;``     +-----+  |   | (library in VCS)  |     v
+    | FUSE Client |--------^  ^                    |   +-------------------+   +------+
+    +-------------+           |                    |                           | etcd |
+                              |                    |                           +------+
+    +----------------+        |                    |   +-------------------+     ^
+    | Browser client |--------+                    +-->|   Name mapper     |     |
+    +----------------+                                 | (library in VCS)  |-----+
+                                                       +-------------------+
+
 
 ## FUSE client
 
