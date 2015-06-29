@@ -7,6 +7,8 @@ system is built from multiple layers; from bottom up, these are: raw storage,
 resilient storage, named storage, discovery, Version Control Server, and FUSE
 client.
 
+![Architecture diagram][diagram]
+
 ## FUSE client
 
 The typical user of Cloud9 interacts with it via a [FUSE mount][fuse].  The
@@ -43,3 +45,4 @@ A [Content-Addressable Storage][cas] backend.
 [rest]: https://en.wikipedia.org/wiki/Representational_state_transfer
 [rs]: https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction
 [cas]: https://en.wikipedia.org/wiki/Content-addressable_storage
+[diagram]: https://docs.google.com/drawings/d/1YkdDia6Ef83NF2p0CwwvKC--67_Lf86bgB1FrhEsrbo/pub?w=960&h=720
